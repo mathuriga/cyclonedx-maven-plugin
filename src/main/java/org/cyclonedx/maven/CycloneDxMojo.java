@@ -48,8 +48,8 @@ public class CycloneDxMojo extends BaseCycloneDxMojo {
         final Set<String> componentRefs = new LinkedHashSet<>();
         Set<Dependency> dependencies = new LinkedHashSet<>();
         getLog().info(MESSAGE_RESOLVING_DEPS);
-        if (getProject() != null && getProject().getArtifacts() != null) {
-            for (final Artifact artifact : getProject().getArtifacts()) {
+        if (getProject() != null && getProject().getDependencyArtifacts() != null) {
+            for (final Artifact artifact : getProject().getDependencyArtifacts()) {
                 if (shouldInclude(artifact)) {
                     final Component component = convert(artifact);
                     // ensure that only one component with the same bom-ref exists in the BOM

@@ -50,7 +50,7 @@ public class CycloneDxAggregateMojo extends BaseCycloneDxMojo {
         final Set<String> componentRefs = new LinkedHashSet<>();
         Set<Dependency> dependencies = new LinkedHashSet<>();
         for (final MavenProject mavenProject : getReactorProjects()) {
-            for (final Artifact artifact : mavenProject.getArtifacts()) {
+            for (final Artifact artifact : mavenProject.getDependencyArtifacts()) {
                 if (shouldInclude(artifact)) {
                     final Component component = convert(artifact);
                     // ensure that only one component with the same bom-ref exists in the BOM
